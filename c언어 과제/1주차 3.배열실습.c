@@ -23,7 +23,7 @@ int main()
 	max = number[0];
 	min = number[0];
 
-	for (int i = 0; i < SIZE; i++) {
+	for (int i = 1; i < SIZE; i++) {
 		if (max < number[i]) max = number[i];
 		if (min > number[i]) min = number[i];
 	}
