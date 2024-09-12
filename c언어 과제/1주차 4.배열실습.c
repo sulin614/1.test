@@ -16,7 +16,8 @@ int main()
 	for (int i = 0; i < SIZE - 1; i++) {
 		most = i;
 		for (int j = i + 1; j < SIZE; j++) {
-			if (number[most] < number[j]) most = j;
+			if (number[most] < number[j]) 
+				most = j;
 		}
 		temp = number[i];
 		number[i] = number[most];
@@ -25,7 +26,8 @@ int main()
 
 	for (int i = 0; i < SIZE; i++) {
 		printf("%5d\t", number[i]);
-		if ((i + 1) % 10 == 0)printf("\n");
+		if ((i + 1) % 10 == 0)
+			printf("\n");
 	}
 
 	return 0;
