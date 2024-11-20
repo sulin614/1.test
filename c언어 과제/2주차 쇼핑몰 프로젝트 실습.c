@@ -14,14 +14,14 @@ int input_quantity(int* array, int quantity) {
 }
 
 void print_max_min(int* array, int min, int max) {
-    printf("\n°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d", max + 1, array[max]);
-    printf("\n°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d", min + 1, array[min]);
+    printf("\nê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d", max + 1, array[max]);
+    printf("\nê°€ì¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d", min + 1, array[min]);
 }
 
 void check_low_stock(int* array, int amount) {
     for (int i = 0; i < amount; i++) {
         if (array[i] < 3) {
-            printf("\n»óÇ° ID %d : Àç°íºÎÁ·(%d)", i + 1, array[i]);
+            printf("\nìƒí’ˆ ID %d : ì¬ê³ ë¶€ì¡±(%d)", i + 1, array[i]);
         }
     }
 }
@@ -42,12 +42,12 @@ int main() {
         stock[i] = receive[i] - sell[i];
     }
 
-    printf("Àç°í ¼ö·® : ");
+    printf("ì¬ê³  ìˆ˜ëŸ‰ : ");
     for (int i = 0; i < amount; i++) {
         printf("%d ", stock[i]);
     }
 
-    printf("\nÃÑ ÆÇ¸Å·® : %d (ÆÇ¸ÅÀ² %.2lf%%)", total_sales,
+    printf("\nì´ íŒë§¤ëŸ‰ : %d (íŒë§¤ìœ¨ %.2lf%%)", total_sales,
         (double)total_sales / total_receive * 100);
 
     int max_sales = 0, min_sales = 0;
