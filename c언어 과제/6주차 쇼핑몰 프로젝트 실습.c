@@ -20,7 +20,7 @@ void get_total_sell() {
 
     sell_proportion = (double)total_sell / total_recv * 100;
 
-    printf("\nÃÑ ÆÇ¸Å·® : %d (ÆÇ¸ÅÀ² : %.2lf%%)\n", total_sell, sell_proportion);
+    printf("\nì´ íŒë§¤ëŸ‰ : %d (íŒë§¤ìœ¨ : %.2lf%%)\n", total_sell, sell_proportion);
 }
 
 void get_min_max() {    // function that calculates min & max
@@ -31,74 +31,74 @@ void get_min_max() {    // function that calculates min & max
         if (product[i].sell < product[min_idx].sell) min_idx = i;
     }
 
-    printf("°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ° : ID %d, »óÇ°¸í : %s, ÆÇ¸Å·® %d\n", max_idx + 1, product[max_idx].name, product[max_idx].sell);
-    printf("°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ° : ID %d, »óÇ°¸í : %s, ÆÇ¸Å·® %d\n", min_idx + 1, product[min_idx].name, product[min_idx].sell);
+    printf("ê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆ : ID %d, ìƒí’ˆëª… : %s, íŒë§¤ëŸ‰ %d\n", max_idx + 1, product[max_idx].name, product[max_idx].sell);
+    printf("ê°€ì¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ : ID %d, ìƒí’ˆëª… : %s, íŒë§¤ëŸ‰ %d\n", min_idx + 1, product[min_idx].name, product[min_idx].sell);
 }
 
 void get_lower_stock() {
     for (int i = 0; i < 5; i++) {
         if ((product[i].receive - product[i].sell) < 3) {
-            printf("»óÇ° ID %d : »óÇ°¸í : %s Àç°íºÎÁ·(%d)\n", i + 1, product[i].name, product[i].receive - product[i].sell);
+            printf("ìƒí’ˆ ID %d : ìƒí’ˆëª… : %s ì¬ê³ ë¶€ì¡±(%d)\n", i + 1, product[i].name, product[i].receive - product[i].sell);
         }
     }
 }
 
-void select_1() {   // ÀÔ°í
+void select_1() {   // ì…ê³ 
     int id;
-    printf(">> »óÇ° ID : ");
+    printf(">> ìƒí’ˆ ID : ");
     scanf("%d", &id);
 
-    if (id > 5) printf("\n(µî·ÏÇÒ ¼ö ÀÖ´Â »óÇ°ÀÇ ÃÖ´ë °³¼ö´Â 5°³ ÀÔ´Ï´Ù.)\n");   // »óÇ°ÀÇ ÃÖ´ë °³¼ö¸¦ 5°³·Î ¼³Á¤
+    if (id > 5) printf("\n(ë“±ë¡í•  ìˆ˜ ìˆëŠ” ìƒí’ˆì˜ ìµœëŒ€ ê°œìˆ˜ëŠ” 5ê°œ ì…ë‹ˆë‹¤.)\n");   // ìƒí’ˆì˜ ìµœëŒ€ ê°œìˆ˜ë¥¼ 5ê°œë¡œ ì„¤ì •
 
     else {
-        printf(">> »óÇ°¸í : ");
+        printf(">> ìƒí’ˆëª… : ");
         scanf("%s", product[id - 1].name);
 
-        printf(">> ÀÔ°í·® : ");
+        printf(">> ì…ê³ ëŸ‰ : ");
         scanf("%d", &product[id - 1].receive);
 
-        printf(">> ÆÇ¸Å°¡°İ : ");
+        printf(">> íŒë§¤ê°€ê²© : ");
         scanf("%d", &product[id - 1].price);
     }
 }
 
-void select_2() {   // ÆÇ¸Å
+void select_2() {   // íŒë§¤
     int id;
-    printf(">> »óÇ° ID : ");
+    printf(">> ìƒí’ˆ ID : ");
     scanf("%d", &id);
 
-    if (product[id - 1].price == 0) printf("\n(µî·ÏµÇÁö ¾ÊÀº »óÇ°ÀÔ´Ï´Ù.)\n");
+    if (product[id - 1].price == 0) printf("\n(ë“±ë¡ë˜ì§€ ì•Šì€ ìƒí’ˆì…ë‹ˆë‹¤.)\n");
 
     else {
-        printf(">> ÆÇ¸Å·® : ");
+        printf(">> íŒë§¤ëŸ‰ : ");
         scanf("%d", &product[id - 1].sell);
     }
 }
 
-void select_3() {   // °³º°ÇöÈ²
+void select_3() {   // ê°œë³„í˜„í™©
     int id;
-    printf(">> »óÇ° ID : ");
+    printf(">> ìƒí’ˆ ID : ");
     scanf("%d", &id);
 
-    printf("\n»óÇ°¸í : %s\n", product[id - 1].name);
-    printf("»óÇ°°¡°İ : %d\n", product[id - 1].price);
-    printf("ÀÔ°í·® : %d\n", product[id - 1].receive);
-    printf("ÆÇ¸Å·® : %d\n", product[id - 1].sell);
-    printf("ÃÑ ÆÇ¸Å±İ¾× : %d\n", product[id - 1].price * product[id - 1].sell);
+    printf("\nìƒí’ˆëª… : %s\n", product[id - 1].name);
+    printf("ìƒí’ˆê°€ê²© : %d\n", product[id - 1].price);
+    printf("ì…ê³ ëŸ‰ : %d\n", product[id - 1].receive);
+    printf("íŒë§¤ëŸ‰ : %d\n", product[id - 1].sell);
+    printf("ì´ íŒë§¤ê¸ˆì•¡ : %d\n", product[id - 1].price * product[id - 1].sell);
 }
 
-void select_4() {   // ÀüÃ¼ÇöÈ²
-    printf("\nÀç°í ¼ö·® : ");
+void select_4() {   // ì „ì²´í˜„í™©
+    printf("\nì¬ê³  ìˆ˜ëŸ‰ : ");
     for (int i = 0; i < 5; i++)  printf("%d ", product[i].receive - product[i].sell);
     get_total_sell();
     get_min_max();
     get_lower_stock();
 }
 
-int select_menu() { // ¸Ş´º ¼±ÅÃ ÇÔ¼ö
+int select_menu() { // ë©”ë‰´ ì„ íƒ í•¨ìˆ˜
     int select = 5;
 
-    printf("[1] : ÀÔ°í\n[2] : ÆÇ¸Å\n[3] : °³º°ÇöÈ²\n[4] : ÀüÃ¼ÇöÈ²\n[5] : Á¾·á\n>> ");
+    printf("[1] : ì…ê³ \n[2] : íŒë§¤\n[3] : ê°œë³„í˜„í™©\n[4] : ì „ì²´í˜„í™©\n[5] : ì¢…ë£Œ\n>> ");
     scanf("%d", &select);
 
     switch (select) {
