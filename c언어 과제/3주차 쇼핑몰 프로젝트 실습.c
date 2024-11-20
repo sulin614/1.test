@@ -6,7 +6,7 @@ int receive[AMOUNT], sell[AMOUNT], stock[AMOUNT];
 void check_low_stock(int* array, int amount) {
     for (int i = 0; i < amount; i++) {
         if (array[i] < 3) {
-            printf("»óÇ° ID %d : Àç°íºÎÁ·(%d)\n", i + 1, array[i]);
+            printf("ìƒí’ˆ ID %d : ìž¬ê³ ë¶€ì¡±(%d)\n", i + 1, array[i]);
         }
     }
 }
@@ -23,8 +23,8 @@ void print_result() {
         }
     }
 
-    printf("\n°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d", max_sales + 1, sell[max_sales]);
-    printf("\n°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d\n", min_sales + 1, sell[min_sales]);
+    printf("\nê°€ìž¥ ë§Žì´ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d", max_sales + 1, sell[max_sales]);
+    printf("\nê°€ìž¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d\n", min_sales + 1, sell[min_sales]);
 }
 
 void print_array(int* array) {
@@ -48,10 +48,10 @@ void sub_stock() {
 int input_quantity(int* array, int quantity) {
     int total = 0;
 
-    for (int i = 0; i < quantity; i++) {  // ¼ö·® ÀÔ·Â
+    for (int i = 0; i < quantity; i++) {  // ìˆ˜ëŸ‰ ìž…ë ¥
         scanf("%d", &array[i]);
     }
-    for (int i = 0; i < quantity; i++) {  // ÃÑ ¼ö·® °è»ê
+    for (int i = 0; i < quantity; i++) {  // ì´ ìˆ˜ëŸ‰ ê³„ì‚°
         total += array[i];
     }
 
@@ -61,17 +61,17 @@ int input_quantity(int* array, int quantity) {
 void ind_edit(int* array) {
     int id;
 
-    printf("»óÇ° ID: ");
+    printf("ìƒí’ˆ ID: ");
     scanf("%d", &id);
 
-    printf("ÀÔ°í¼ö·®: ");
+    printf("ìž…ê³ ìˆ˜ëŸ‰: ");
     scanf("%d", &array[id - 1]);
 }
 
-void select_1() {  // ÀÔ°í ¼±ÅÃ
+void select_1() {  // ìž…ê³  ì„ íƒ
     int select;
 
-    printf("ÀÔ°í¼ö·® ÀÔ·Â : ÀüÃ¼ »óÇ° ÀÔ°í¼ö·® ÀÔ·Â 1, °³º° »óÇ° ÀÔ·Â 2¸¦ ¼±ÅÃ\n: ");
+    printf("ìž…ê³ ìˆ˜ëŸ‰ ìž…ë ¥ : ì „ì²´ ìƒí’ˆ ìž…ê³ ìˆ˜ëŸ‰ ìž…ë ¥ 1, ê°œë³„ ìƒí’ˆ ìž…ë ¥ 2ë¥¼ ì„ íƒ\n: ");
     scanf("%d", &select);
 
     switch (select) {
@@ -90,7 +90,7 @@ void select_1() {  // ÀÔ°í ¼±ÅÃ
 void select_2() {
     int select;
 
-    printf("ÆÇ¸Å¼ö·® ÀÔ·Â : ÀüÃ¼ »óÇ° ÆÇ¸Å¼ö·® ÀÔ·Â 1, °³º° »óÇ° ÀÔ·Â 2¸¦ ¼±ÅÃ\n: ");
+    printf("íŒë§¤ìˆ˜ëŸ‰ ìž…ë ¥ : ì „ì²´ ìƒí’ˆ íŒë§¤ìˆ˜ëŸ‰ ìž…ë ¥ 1, ê°œë³„ ìƒí’ˆ ìž…ë ¥ 2ë¥¼ ì„ íƒ\n: ");
     scanf("%d", &select);
 
     switch (select) {
@@ -108,16 +108,16 @@ void select_2() {
 }
 
 void select_3() {
-    printf("\nÀç°í¼ö·®: ");
+    printf("\nìž¬ê³ ìˆ˜ëŸ‰: ");
     print_array(stock);
     print_result();
     check_low_stock(stock, AMOUNT);
 }
 
-int select_menu() {  // ¸Þ´º ¼±ÅÃ ÇÔ¼ö
+int select_menu() {  // ë©”ë‰´ ì„ íƒ í•¨ìˆ˜
     int select = 4;
 
-    printf("[¼îÇÎ¸ô °ü¸® ÇÁ·Î±×·¥]\n¿øÇÏ´Â ¸Þ´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.(1. ÀÔ°í, 2. ÆÇ¸Å, 3. »óÇ°ÇöÈ², 4. Á¾·á)\n: ");
+    printf("[ì‡¼í•‘ëª° ê´€ë¦¬ í”„ë¡œê·¸ëž¨]\nì›í•˜ëŠ” ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”.(1. ìž…ê³ , 2. íŒë§¤, 3. ìƒí’ˆí˜„í™©, 4. ì¢…ë£Œ)\n: ");
     scanf("%d", &select);
 
     switch (select) {
@@ -145,7 +145,7 @@ int select_menu() {  // ¸Þ´º ¼±ÅÃ ÇÔ¼ö
 int main() {
     while (select_menu() != -1)
         printf("------------------------------------------------------------\n\n");
-    printf("\nÁ¾·á");
+    printf("\nì¢…ë£Œ");
 
     return 0;
 }
