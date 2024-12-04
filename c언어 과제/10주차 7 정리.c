@@ -1,23 +1,23 @@
-#include <stdio.h>          // printf,fopen,fwrite,fclose°°Àº ÇÔ¼öµé ÀÌ ¶óÀÌºê·¯¸®¿¡¼­ Á¦°ø
-#define SIZE 100      //¹è¿­ Å©±â¸¦ 100À¸·Î Á¤ÀÇ
+#include <stdio.h>          // printf,fopen,fwrite,fcloseê°™ì€ í•¨ìˆ˜ë“¤ ì´ ë¼ì´ë¸ŒëŸ¬ë¦¬ì—ì„œ ì œê³µ
+#define SIZE 100      //ë°°ì—´ í¬ê¸°ë¥¼ 100ìœ¼ë¡œ ì •ì˜
 
 int main() {
-    char input[SIZE];   //Å©±â°¡ 100ÀÎ ¹®ÀÚ ¹è¿­ ¼±¾ð
-    FILE* fp = NULL;    //FILE Æ÷ÀÎÅÍ¸¦ NULL·Î ÃÊ±âÈ­, ÀÌ Æ÷ÀÎÅÍ´Â ÆÄÀÏ ¿­°í ¾²°í ´Ý´Âµ¥ »ç¿ë
+    char input[SIZE];   //í¬ê¸°ê°€ 100ì¸ ë¬¸ìž ë°°ì—´ ì„ ì–¸
+    FILE* fp = NULL;    //FILE í¬ì¸í„°ë¥¼ NULLë¡œ ì´ˆê¸°í™”, ì´ í¬ì¸í„°ëŠ” íŒŒì¼ ì—´ê³  ì“°ê³  ë‹«ëŠ”ë° ì‚¬ìš©
 
-    if ((fp = fopen("output.bin", "wb")) == NULL) {     //ÆÄÀÏ ¿­ ¼ö ¾øÀ¸¸é fopenÀº NULL¹ÝÈ¯ ÈÄ   //bin = ¹ÙÀÌ³Ê¸®, ¾²±â ¸ðµå´Â ÅØ½ºÆ®¿¡¼­ wÀÎµ¥ ¹ÙÀÌ³Ê¸®¶ó¼­ wb
-        printf("error...");                             //ÆÄÀÏ ¿­±â¿¡ ½ÇÆÐÇÑ °æ¿ì error¸Þ½ÃÁö Ãâ·Â    
+    if ((fp = fopen("output.bin", "wb")) == NULL) {     //íŒŒì¼ ì—´ ìˆ˜ ì—†ìœ¼ë©´ fopenì€ NULLë°˜í™˜ í›„   //bin = ë°”ì´ë„ˆë¦¬, ì“°ê¸° ëª¨ë“œëŠ” í…ìŠ¤íŠ¸ì—ì„œ wì¸ë° ë°”ì´ë„ˆë¦¬ë¼ì„œ wb
+        printf("error...");                             //íŒŒì¼ ì—´ê¸°ì— ì‹¤íŒ¨í•œ ê²½ìš° errorë©”ì‹œì§€ ì¶œë ¥    
         return 0;
     }
-    gets(input);                              //ÇÑÁÙÀÇ ¹®ÀÚ¿­ ÀÔ·Â¹Þ´Â ÇÔ¼ö, puts - ³»¿ëÃâ·ÂÇÏ´Â°Å
+    gets(input);                              //í•œì¤„ì˜ ë¬¸ìžì—´ ìž…ë ¥ë°›ëŠ” í•¨ìˆ˜, puts - ë‚´ìš©ì¶œë ¥í•˜ëŠ”ê±°
     //fputs(input, fp);
-    fwrite(input, strlen(input), 1, fp);     // input : ÀÔ·Âµ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í ÀÖ´Â ¹è¿­, 2Áø¼ö µ¥ÀÌÅÍ·Î ½á¾ßÇÒ ¶§´Â fwrite  
-                                            //  strlen(input) ¹®ÀÚ¿­±æÀÌ±îÁö¸¸ NULL¹®ÀÚ ÀÌÀü±îÁö¸¸ Ä«¿îÆÃÀÌ µÊ
-    fclose(fp);                             //  ÆÄÀÏ ´Ý´Â ÇÔ¼ö(´ÝÁö ¾ÊÀ¸¸é Á¦´ë·Î ÀúÀå ¾È µÉ ¼öµµ ÀÖÀ½)
+    fwrite(input, strlen(input), 1, fp);     // input : ìž…ë ¥ë°ì´í„°ë¥¼ ì €ìž¥í•˜ê³  ìžˆëŠ” ë°°ì—´, 2ì§„ìˆ˜ ë°ì´í„°ë¡œ ì¨ì•¼í•  ë•ŒëŠ” fwrite  
+                                            //  strlen(input) ë¬¸ìžì—´ê¸¸ì´ê¹Œì§€ë§Œ NULLë¬¸ìž ì´ì „ê¹Œì§€ë§Œ ì¹´ìš´íŒ…ì´ ë¨
+    fclose(fp);                             //  íŒŒì¼ ë‹«ëŠ” í•¨ìˆ˜(ë‹«ì§€ ì•Šìœ¼ë©´ ì œëŒ€ë¡œ ì €ìž¥ ì•ˆ ë  ìˆ˜ë„ ìžˆìŒ)
 
     return 0;
 }
 
-// ¿øÇü
-// size_t fread(void* ptr(ÀÐ¾îµéÀÏ µ¥ÀÌÅÍÀÇ ÀúÀå°ø°£ ÁÖ¼Ò°ª,ÀÚ·áÇü Å©±â »ó°ü ¾øÀ¸¹Ç·Î void*),size_t size(ÀÐÀ»µ¥ÀÌÅÍÅ©±â), size_t count(ÀÐÀ»µ¥ÀÌÅÍ°³¼ö), FILE* stream(ÀÐÀ»ÆÄÀÏ));
-// size_t fwrite(const void* ptr(½á¾ßÇÒ µ¥ÀÌÅÍÀÇ ÀúÀå°ø°£ ÁÖ¼Ò°ª,ÀÚ·áÇü Å©±â »ó°ü ¾øÀ¸¹Ç·Î void*),size_t size(¾µµ¥ÀÌÅÍÅ©±â), size_t count(¾µµ¥ÀÌÅÍ°³¼ö), FILE* stream(¾µÆÄÀÏ));
+// ì›í˜•
+// size_t fread(void* ptr(ì½ì–´ë“¤ì¼ ë°ì´í„°ì˜ ì €ìž¥ê³µê°„ ì£¼ì†Œê°’,ìžë£Œí˜• í¬ê¸° ìƒê´€ ì—†ìœ¼ë¯€ë¡œ void*),size_t size(ì½ì„ë°ì´í„°í¬ê¸°), size_t count(ì½ì„ë°ì´í„°ê°œìˆ˜), FILE* stream(ì½ì„íŒŒì¼));
+// size_t fwrite(const void* ptr(ì¨ì•¼í•  ë°ì´í„°ì˜ ì €ìž¥ê³µê°„ ì£¼ì†Œê°’,ìžë£Œí˜• í¬ê¸° ìƒê´€ ì—†ìœ¼ë¯€ë¡œ void*),size_t size(ì“¸ë°ì´í„°í¬ê¸°), size_t count(ì“¸ë°ì´í„°ê°œìˆ˜), FILE* stream(ì“¸íŒŒì¼));
