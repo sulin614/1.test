@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int getline(char* line) {
+int getline(char* line) {  
     int ch;
     int i = 0;
     while ((ch = getchar()) != '\n') line[i++] = ch;
@@ -24,12 +24,12 @@ int main() {
     }
 
     while (!feof(fp_src)) {
-        fscanf(fp_src, "%s %d %d\n", input, &num1, &num2);    // ex) aaa 10 20 Ãâ·Â¹Ş±â, ½ºÆäÀÌ½º ¿ª½½·¡½Ã±îÁö ÇØÁÖ±â
+        fscanf(fp_src, "%s %d %d\n", input, &num1, &num2);    // ex) aaa 10 20 ì¶œë ¥ë°›ê¸°, ìŠ¤í˜ì´ìŠ¤ ì—­ìŠ¬ë˜ì‹œê¹Œì§€ í•´ì£¼ê¸°
         fprintf(fp_dest, "%s %d %d\n", input, num1, num2);
     }
 
     fclose(fp_src);
-    fclose(fp_dest);
+    fclose(fp_dest);        //íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹«ëŠ”ë‹¤
 
     return 0;
 }
