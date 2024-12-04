@@ -13,18 +13,18 @@ int main() {
     FILE* fp_src;             // src = source
     FILE* fp_dest;
 
-    if ((fp_src = fopen("output.txt", "r")) == NULL) {     // ÀĞ±â´Â "r" 
+    if ((fp_src = fopen("output.txt", "r")) == NULL) {     // ì½ê¸°ëŠ” "r", íŒŒì¼ ì—´ ìˆ˜ ì—†ìœ¼ë©´ fopenì€ NULLë°˜í™˜
         printf("error...");
-        return 0;                                                 //output ÅØ½ºÆ®ÆÄÀÏ ¿­±â
+        return 0;                                                 //output í…ìŠ¤íŠ¸íŒŒì¼ ì—´ê¸°
     }
-    if ((fp_dest = fopen("output2.txt", "w")) == NULL) {    // ¾²±â´Â "w"
+    if ((fp_dest = fopen("output2.txt", "w")) == NULL) {    // ì“°ê¸°ëŠ” "w", "w"ì€ íŒŒì¼ ì—†ìœ¼ë©´ ìƒˆë¡œ ë§Œë“¤ê³  ê¸°ì¡´íŒŒì¼ ìˆìœ¼ë©´ ë®ì–´ì“°ê¸°
         printf("error...");
-        return 0;                                                //output2 ÅØ½ºÆ®ÆÄÀÏ ¿­±â
+        return 0;                                                //output2 í…ìŠ¤íŠ¸íŒŒì¼ ì—´ê¸°
     }
 
-    while (!feof(fp_src)) {        // feo ÇÔ¼ö´Â ÆÄÀÏÆ÷ÀÎÅÍ¸¦ ÁÖ¸é ÆÄÀÏÀÇ ³¡ÀÎÁö ¾Æ´ÑÁö ¾Ë·ÁÁÖ´Â ÇÔ¼ö, ³¡ÀÌ¸é 1, ³¡ÀÌ ¾Æ´Ï¸é 0, !´Â ¾Æ´Ï´Ù¶ó´Â ¶æ
-        fgets(input, 100, fp_src);  // ÇÑÁÙ¾¿ ÀĞ´Â°Å
-        fputs(input, fp_dest);     //puts´Â \n Âï¾îÁÜ
+    while (!feof(fp_src)) {        // feo í•¨ìˆ˜ëŠ” íŒŒì¼í¬ì¸í„°ë¥¼ ì£¼ë©´ íŒŒì¼ì˜ ëì¸ì§€ ì•„ë‹Œì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜,íŒŒì¼ë ë„ë‹¬í• ë•Œê¹Œì§€ ë°˜ë³µ, ëì´ë©´ 1, ëì´ ì•„ë‹ˆë©´ 0, !ëŠ” ì•„ë‹ˆë‹¤ë¼ëŠ” ëœ»
+        fgets(input, 100, fp_src);  // fp_src í•œì¤„ì”© ì½ê³  inputë°°ì—´ì— ì €ì¥, ìµœëŒ€ 100ê°œ ì½ê³  \n í•¨ê»˜ ì½ìŒ
+        fputs(input, fp_dest);     //putsëŠ” \n ì°ì–´ì¤Œ
     }
 
     fclose(fp_src);
