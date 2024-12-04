@@ -18,13 +18,13 @@ int main() {
         printf("error...");
         return 0;
     }
-    if ((fp_dest = fopen("output2.txt", "w")) == NULL) {
+    if ((fp_dest = fopen("output3.txt", "w")) == NULL) {
         printf("error...");
         return 0;
     }
 
     while (!feof(fp_src)) {
-        fscanf(fp_src, "%s %d %d\n", input, &num1, &num2);
+        fscanf(fp_src, "%s %d %d\n", input, &num1, &num2);    // ex) aaa 10 20 출력받기, 스페이스 역슬래시까지 해주기
         fprintf(fp_dest, "%s %d %d\n", input, num1, num2);
     }
 
